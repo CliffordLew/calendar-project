@@ -1,4 +1,4 @@
-#import main.py
+import main
 from tkinter import *
 from tkinter import ttk
 
@@ -23,5 +23,15 @@ date_entry.grid(column = 2, row = 1, sticky = (W, E))
 description = StringVar()
 description_entry = ttk.Entry(mainframe, width = 100, textvariable = description)
 description_entry.grid(column = 2, row = 2, sticky = (W, E))
+
+## labels for buttons
+ttk.Label(mainframe, text = "date : ").grid(column = 1, row = 1, sticky = E)
+ttk.Label(mainframe, text = "description : ").grid(column = 1, row = 2, sticky = E)
+
+## space between textboxes
+for child in mainframe.winfo_children():
+    child.grid_configure(padx = 5, pady = 5)
+
+root.bind("<Return>", print("printing"))
 
 root.mainloop()
